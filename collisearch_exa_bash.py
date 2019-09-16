@@ -48,7 +48,7 @@ def cost(apgcode):
 
 
 def workerfunc(outqueue, inqueue, id):
-    os.chdir("/home/exa/Dropbox/Programming/C Code/CLion/GameOfLife/cmake-build-debug")
+    os.chdir("./C++")
     proc = subprocess.Popen("./GameOfLife", stdout=subprocess.PIPE, stdin=subprocess.PIPE)
     res = ""
     while True:
@@ -69,7 +69,7 @@ def workerfunc(outqueue, inqueue, id):
 def getargs():
     parser = argparse.ArgumentParser(formatter_class=argparse.ArgumentDefaultsHelpFormatter)
     parser.add_argument("-d", "--out-dir", help="directory to store synthesis rles in",
-                        default="/home/exa/Documents/lifestuff/collisearch_results")
+                        default="./collisearch_results")
     args = parser.parse_args()
     return args
 
@@ -116,13 +116,13 @@ def printuses(used_by, apgcode):
 if __name__ == "__main__":
     min_paths = dijkstra()
     objs = getsortedsls()
-    costfile = open("/home/exa/Dropbox/Programming/C Code/CLion/GameOfLife/costs.txt", "w")
+    costfile = open("./C++/costs.txt", "w")
     for x in objs:
         # print(f"{x[0]} {x[1]}")
         costfile.write(f"{x[0]} {x[1]}\n")
     used_by = getuses(min_paths)
     compfile = open(
-        "/home/exa/Dropbox/Programming/Personal Projects/GameOfLife/componentSearch/shinjuku/comp/collisearch_out.sjk",
+        "./collisearch_out.sjk",
         "a")
     compfile.write("\n")
     args = getargs()
