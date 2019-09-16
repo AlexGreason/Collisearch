@@ -146,7 +146,7 @@ int main(){
     std::unordered_map<std::string, int> costs;
     std::vector<std::string> targets;
     genglidertable();
-    loadcosts("/home/exa/Dropbox/Programming/C Code/CLion/GameOfLife/costs.txt", &costs, &targets);
+    loadcosts("./costs.txt", &costs, &targets);
     ulong i = 0;
     ulong ntarget = targets.size();
     int maxcols = 1000;
